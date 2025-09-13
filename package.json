@@ -1,0 +1,22 @@
+{
+  "name": "loops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chinky23-tech/loops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chinky23-tech/loops/issues"
+  },
+  "homepage": "https://github.com/chinky23-tech/loops#readme"
+}
