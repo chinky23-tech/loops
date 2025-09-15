@@ -1,27 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>student grades manager</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f4f4f9;
+    }
+    .todo-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+    li {
+      padding: 8px;
+      background: #f9f9f9;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .delete-btn {
+      background: red;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <p id="demo"></p>
-    <script>
 
-    let cart = [
-        {item: 'shoes' , price:1200},
-        {item: 'T-shirt' , price: 800},
-        {item: 'cap' , price:300}
-    ];
+  <div class="todo-container">
+    <h2>To-Do List ✅</h2>
+    <input type="text" id="taskInput" placeholder="Add a new task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </div>
 
-    let total = 0;
+  <script>
+    let tasks = []; // array to store tasks
 
-    for(const cart of carts){
-      total += cart.price;
+    function addTask() {
+      let taskInput = document.getElementById("taskInput");
+      let taskText = taskInput.value.trim();
+
+      if (taskText === "") {
+        alert("Please enter a task!");
+        return;
+      }
+
+      // push task into array (as object for flexibility)
+      tasks.push({ text: taskText });
+      taskInput.value = ""; // clear input
+
+      displayTasks();
     }
-    console.log('total: rupee ' + total);
-    </script>
+
+    function deleteTask(index) {
+      tasks.splice(index, 1); // remove task at index
+      displayTasks();
+    }
+
+    function displayTasks() {
+      let taskList = document.getElementById("taskList");
+      taskList.innerHTML = "";
+
+      tasks.forEach((task, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `
+          ${task.text}
+          <span class="delete-btn" onclick="deleteTask(${index})">❌</span>
+        `;
+        taskList.appendChild(li);
+      });
+    }
+  </script>
+
 </body>
 </html>
