@@ -1,18 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>number guessing game</title>
+    <title>student grades manager</title>
 </head>
 <body>
+    <p id="demo"></p>
     <script>
-      let playAgain;
-do {
-  console.log("🎮 Playing game...");
-  playAgain = prompt("Play again? (yes/no)");
-} while (playAgain === "yes");
 
+    let cart = [
+        {item: 'shoes' , price:1200},
+        {item: 'T-shirt' , price: 800},
+        {item: 'cap' , price:300}
+    ];
+
+    let total = 0;
+
+    for(const cart of carts){
+      total += cart.price;
+    }
+    console.log('total: rupee ' + total);
     </script>
 </body>
 </html>
