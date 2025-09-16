@@ -1,47 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Simple To-Do List</title>
-  <style>
-    /* Simple styling so UI is readable */
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:#f6f6f8; padding:24px; }
-    .wrap{ max-width:600px; margin:0 auto; background:#fff; padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
-    h1{ margin:0 0 12px; font-size:20px; }
-    form { display:flex; gap:8px; margin-bottom:12px; }
-    input[type="text"]{ flex:1; padding:8px 10px; border-radius:6px; border:1px solid #ddd; font-size:14px; }
-    button{ padding:8px 10px; border-radius:6px; border:0; cursor:pointer; font-size:14px; }
-    button.primary{ background:#2563eb; color:white; }
-    button.ghost{ background:#eef2ff; color:#1e293b; }
-    ul{ list-style:none; padding:0; margin:0; }
-    li.task-item{ display:flex; align-items:center; gap:10px; padding:8px; border-bottom:1px solid #f0f0f2; }
-    .task-text{ flex:1; word-break:break-word; }
-    .task-text.completed{ text-decoration:line-through; color:#6b7280; }
-    .small-btn{ padding:6px 8px; border-radius:6px; background:#f8fafc; border:1px solid #e6e9ef; cursor:pointer; }
-    .empty{ color:#6b7280; padding:12px; text-align:center; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <h1>My To-Do List</h1>
-
-    <!-- Form to add tasks. using form + submit helps keyboard 'Enter' to add -->
-    <form id="taskForm">
-      <input id="taskInput" type="text" placeholder="Add a task (press Enter or click Add)" autocomplete="off" />
-      <button class="primary" type="submit">Add</button>
-      <button id="clearBtn" type="button" class="ghost">Clear All</button>
-    </form>
-
-    <!-- Where tasks will be rendered -->
-    <ul id="taskList"></ul>
-    <p id="status" class="empty" aria-live="polite"></p>
-  </div>
-
-  <script>
-    /* -------------------------
-       ELEMENT REFERENCES
-       ------------------------- */
+     /* Elements Reference*/
     const taskForm = document.getElementById('taskForm');
     const taskInput = document.getElementById('taskInput');
     const taskList = document.getElementById('taskList');
@@ -237,6 +194,3 @@
 
     // load from localStorage on page load
     loadTasks();
-  </script>
-</body>
-</html>
